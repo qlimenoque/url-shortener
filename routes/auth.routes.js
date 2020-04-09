@@ -6,7 +6,7 @@ const jwt = require('jsonwebtoken');
 const config = require('config');
 const router = Router();
 
-// /api/auth/login
+// /api/auth/register
 router.post(
     '/register',
     [
@@ -59,7 +59,7 @@ router.post(
             const token = jwt.sign(
                 { userId: user.id },
                 config.get('jwtSecret'),
-                { expiresIn: '1h' }
+                { expiresIn: '3h' }
             );
 
             res.json({ token, userId: user.id })
